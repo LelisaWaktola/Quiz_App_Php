@@ -23,7 +23,7 @@ Admin side:
 
 technologies :
    - frontend --> html, css, js .
-   - backend  --> php .
+   - backend  --> php with XAMMP server.
    - database --> MySQL.
    - architecture --> MVC.
  

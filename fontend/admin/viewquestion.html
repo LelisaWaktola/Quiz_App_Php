@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Questions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #343a40;
+      color: #fff;
+    }
+    tr:hover {
+      background: #f1f1f1;
+    }
+    .actions button {
+      padding: 6px 12px;
+      margin: 0 4px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .edit { background: #007bff; color: white; }
+    .delete { background: #dc3545; color: white; }
+    @media (max-width: 600px) {
+      th, td { font-size: 14px; padding: 8px; }
+      .actions button { font-size: 14px; padding: 5px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Questions in Quiz</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Option A</th>
+            <th>Option B</th>
+            <th>Option C</th>
+            <th>Option D</th>
+            <th>Correct</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>What is the capital of France?</td>
+            <td>Paris</td>
+            <td>London</td>
+            <td>Rome</td>
+            <td>Berlin</td>
+            <td>A</td>
+            <td class="actions">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </td>
+          </tr>
+          <!-- Additional questions here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

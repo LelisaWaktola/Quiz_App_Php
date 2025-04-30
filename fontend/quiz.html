@@ -1,0 +1,78 @@
+<!-- quiz.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Quiz - Quiz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 1rem;
+    }
+    .quiz-box {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .answers label {
+      display: block;
+      background: #f0f0f0;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .answers input {
+      margin-right: 10px;
+    }
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .prev-btn {
+      background: #cccccc;
+      color: white;
+    }
+    .next-btn {
+      background: #4a00e0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-box">
+    <h2>Smart Quiz</h2>
+    <div class="question">What is the capital of France?</div>
+    <div class="answers">
+      <label><input type="radio" name="q1"> Paris</label>
+      <label><input type="radio" name="q1"> London</label>
+      <label><input type="radio" name="q1"> Rome</label>
+    </div>
+    <div class="btn-row">
+      <button class="prev-btn" disabled>Previous</button>
+      <button class="next-btn">Next</button>
+    </div>
+  </div>
+</body>
+</html>
