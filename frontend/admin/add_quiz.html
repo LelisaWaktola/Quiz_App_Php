@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/add_quiz.css">
+  <title>Add Quiz</title>  
+</head>
+<body>
+  <div class="container">
+    <h2>Add New Quiz</h2>
+    <form action="/backend/add_quiz.php" method="POST">
+      <label for="title">Quiz Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter quiz title" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Enter subject name" required>
+
+      <label for="questions">Total Questions</label>
+      <input type="number" id="questions" name="questions" min="1" placeholder="Number of questions" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Short description of the quiz"></textarea>
+
+      <button type="submit">Add Quiz</button>
+    </form>
+  </div>
+</body>
+</html>

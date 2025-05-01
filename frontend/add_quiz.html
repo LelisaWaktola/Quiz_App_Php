@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #0077b6;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .question-block {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+    .option-input {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .add-btn, .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .add-btn {
+      background-color: #0077b6;
+      color: white;
+    }
+    .add-btn:hover {
+      background-color: #023e8a;
+    }
+    .submit-btn {
+      background-color: #00b4d8;
+      color: white;
+    }
+    .submit-btn:hover {
+      background-color: #0077b6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Create a New Quiz</h2>
+  <form method="post" action="../backend/api/add_quiz.php" id="quizForm">
+
+    <div class="form-group">
+      <label for="category">Category Name</label>
+      <input type="text" name="category" id="category" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Category Description</label>
+      <textarea name="description" id="description" rows="3" required></textarea>
+    </div>
+
+    <div id="questions-container"></div>
+
+    <button type="button" class="add-btn" onclick="addQuestion()">+ Add Question</button>
+    <button type="submit" class="submit-btn">Add</button>
+  </form>
+</div>
+
+<script>
+  let questionCount = 0;
+
+  function addQuestion() {
+    const container = document.getElementById('questions-container');
+    const block = document.createElement('div');
+    block.className = 'question-block';
+    block.innerHTML = `
+  <div class="form-group">
+    <label>Question</label>
+    <input type="text" name="questions[${questionCount}][text]" required>
+  </div>
+  <div class="form-group">
+    <label>Options</label>
+    <div class="option-input">
+      <input type="text" name="questions[${questionCount}][options][]" required>
+      <input type="radio" name="questions[${questionCount}][correct]" value="0" required> Correct
+    </div>
+    <div class="option-input">
+      <input type="text" name="questions[${questionCount}][options][]" required>
+      <input type="radio" name="questions[${questionCount}][correct]" value="1"> Correct
+    </div>
+    <div class="option-input">
+      <input type="text" name="questions[${questionCount}][options][]" required>
+      <input type="radio" name="questions[${questionCount}][correct]" value="2"> Correct
+    </div>
+    <div class="option-input">
+      <input type="text" name="questions[${questionCount}][options][]" required>
+      <input type="radio" name="questions[${questionCount}][correct]" value="3"> Correct
+    </div>
+  </div>
+`;
+
+    container.appendChild(block);
+    questionCount++;
+  }
+</script>
+
+</body>
+</html>

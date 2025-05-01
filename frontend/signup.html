@@ -17,7 +17,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 1rem;
       color: #333;
     }
     .form-container {
@@ -26,7 +27,12 @@
       border-radius: 15px;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .form-container:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      transform: translateY(-5px);
     }
     h2 {
       text-align: center;
@@ -39,6 +45,12 @@
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 10px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: #00c9ff;
     }
     button {
       width: 100%;
@@ -49,10 +61,11 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
     button:hover {
       background: #3be8b0;
+      transform: scale(1.02);
     }
     p {
       margin-top: 1rem;
@@ -65,15 +78,24 @@
     a:hover {
       text-decoration: underline;
     }
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 1.5rem 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="form-container">
     <h2>Create Account</h2>
-    <form action="/signup" method="post">
-      <input type="text" name="name" placeholder="Full Name" required />
+    <form action="../backend/api/signup.php" method="post">
+      <input type="text" name="username" placeholder="Username" required />
       <input type="email" name="email" placeholder="Email" required />
       <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required />
       <button type="submit">Sign Up</button>
     </form>
     <p>Already have an account? <a href="login.html">Log in</a></p>
