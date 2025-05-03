@@ -1,0 +1,96 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+    color: #0077b6;
+  }
+
+  .form-group, .question-block {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #4c51bf;
+    border: none;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #434190;
+  }
+
+  .btn-outline-light {
+    background: transparent;
+    color: #4c51bf;
+    border: 1px solid #4c51bf;
+  }
+
+  .btn-outline-light:hover {
+    background-color: #4c51bf;
+    color: white;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero {
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+  }

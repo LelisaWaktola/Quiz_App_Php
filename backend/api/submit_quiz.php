@@ -1,6 +1,11 @@
 <?php
 session_start();
 require '../db/connection.php';
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, redirect to login page
+    header("Location: ../../frontend/login.html");
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get logged-in user ID from session

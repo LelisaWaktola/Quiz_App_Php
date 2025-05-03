@@ -3,6 +3,13 @@
 
 require '../db/connection.php'; // adjust the path to your DB connection file
 
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, redirect to login page
+    header("Location: ../../frontend/login.html");
+    exit();
+}
+
 // Step 1: Get the subject from URL
 $subject = isset($_GET['subject']) ? strtolower(trim($_GET['subject'])) : null;
 

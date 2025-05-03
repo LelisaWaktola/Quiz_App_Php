@@ -1,5 +1,10 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, redirect to login page
+    header("Location: ../../frontend/login.html");
+    exit();
+}
 require '../db/connection.php'; // adjust path as needed
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

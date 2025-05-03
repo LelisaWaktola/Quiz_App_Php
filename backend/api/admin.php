@@ -1,6 +1,17 @@
 <?php
-session_start();
+
 require_once '../db/connection.php'; // database connection file
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, redirect to login page
+    header("Location: ../../frontend/login.html");
+    exit();
+}
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, redirect to login page
+    header("Location: login.html");
+    exit();
+}
 
 // Sanitize and retrieve input
 $email = trim($_POST['email'] ?? '');
