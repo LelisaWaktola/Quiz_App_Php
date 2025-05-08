@@ -1,26 +1,24 @@
 <?php
 session_start();
-include('../db/connection.php'); // Make sure this path is correct!
-
+include('../db/connection.php'); 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get form inputs safely
+    
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
 
-    // Check if passwords match
+    
     if ($password !== $confirm_password) {
-        echo "❌ Passwords do not match!";
+        header('location: ../../frontend/signup.html?confirmPassword=f');
         exit;
     }
 
-    // Check if email already exists
-    $check_query = "SELECT id FROM users WHERE email = '$email' LIMIT 1";
+    $check_query = "SELECT id FROM users WHERE email = '$email'";
     $check_result = mysqli_query($conn, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
-        echo "❌ Email is already registered!";
+        header('location: ../../frontend/signup.html?email=registered');
         exit;
     }
     $password=password_hash($password,PASSWORD_DEFAULT);

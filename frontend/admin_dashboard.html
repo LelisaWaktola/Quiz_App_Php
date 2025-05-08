@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="css/admin_dashboard.css">
+  <style>
+    
+  </style>
+  
 </head>
 <body>
   <header>
@@ -28,6 +32,33 @@
       <a href="../backend/api/view_history.php">Go</a>
     </div>
   </main>
+  <!-- Success Popup -->
+  <div id="success-popup" class="popup hidden">
+    <span class="popup-icon">✅</span>
+    <p id="popup-message"></p>
+  </div>
 
+  <script>
+    function getQueryParam(key) {
+      return new URLSearchParams(window.location.search).get(key);
+    }
+  
+    const categorySuccess = getQueryParam('category');
+    if (categorySuccess === 'success') {
+      const popup = document.getElementById('success-popup');
+      const popupMessage=document.getElementById('popup-message');
+      popupMessage.textContent='category created successfully! ';
+
+      popup.classList.remove('hidden');
+      popup.classList.add('show');
+  
+      setTimeout(() => {
+        popup.classList.remove('show');
+        popup.classList.add('hidden');
+      }, 3000); // 3 seconds
+    }
+  </script>
+  
+  
 </body>
 </html>

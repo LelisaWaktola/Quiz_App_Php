@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -18,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Insert into categories
     $stmt = $conn->prepare("INSERT INTO categories (name, description) VALUES (?, ?)");
     $stmt->bind_param("ss", $name, $description);
-
+     
     if ($stmt->execute()) {
-        header("Location: ../../frontend/admin_dashboard.html");
+        header("Location: ../../frontend/admin_dashboard.html?category=success");
         exit();
     } else {
         echo "Error: " . $stmt->error;

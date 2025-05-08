@@ -77,6 +77,6 @@ foreach ($questions as $index => $q) {
 }
 
 $conn->close();
-header("Location: ../../frontend/add_quiz.html?success=1");
+header("Location: ../../frontend/add_quiz.html?addition=success");
 exit();
 ?>

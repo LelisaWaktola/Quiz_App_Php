@@ -1,4 +1,6 @@
-
+*{
+   box-sizing: border-box;
+}
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f8f9fa;
@@ -55,4 +57,40 @@
 
     .card a:hover {
       background: #457b9d;
+    }
+    .popup {
+      position: fixed;
+   
+      transform: translate(-50%, -50%);
+      background: #28a7469d;
+      color: white !important;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      /* display: flex; */
+      /* align-items: center; */
+      gap: 10px;
+      max-width: 400px;
+      
+    }
+  
+    .popup.show {
+      opacity: 1;
+    }
+  
+    .popup-icon {
+      font-size: 18px;
+    }
+  
+    .hidden {
+      display: none;
+    }
+  
+    #popup-message {
+      font-size: 2em;
+      color: white;
     }

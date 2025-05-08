@@ -35,7 +35,7 @@ CREATE TABLE results (
 );
 
 
-
+insert into users(name,email,password) values ("lelisa","lalisapaaa@gmail.com",);
 INSERT INTO categories (name, description) VALUES  
 ('Biology', 'Test your knowledge of life sciences.'),
 ('Physics', 'Challenge yourself with physics problems.'),
@@ -66,3 +66,5 @@ CREATE TABLE admin (
   user_id INT,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+insert into admin(user_id,) values(3);

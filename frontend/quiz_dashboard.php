@@ -8,6 +8,7 @@
 </head>
 <body>
   <?php
+  session_start();
   if (!isset($_SESSION['user_id'])) {
     // User is not logged in, redirect to login page
     header("Location: login.html");
@@ -27,7 +28,7 @@
     <div class="grid">
       <?php while ($row = $result->fetch_assoc()): ?>
         <div class="card">
-          <h5 class="card-title"><?php echo htmlspecialchars($row['name']); ?></h5>
+          <h5 class="card-title"><?php echo htmlspecialchars($row['name']); ?></h5><!-- for security ex . <script>-->
           <p class="card-text"><?php echo htmlspecialchars($row['description']); ?></p>
           <a href="../backend/api/quiz.php?subject=<?php echo urlencode(strtolower($row['name'])); ?>" class="btn">Start Quiz</a>
         </div>

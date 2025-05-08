@@ -1,8 +1,8 @@
 <?php
 // Start session and check if admin is logged in (optional but recommended)
-session_start();
+// session_start();
 // if (!isset($_SESSION['is_admin'])) {
-//     header("Location: login.html");
+//     header("Location: ../../frontend/admin_login.html");
 //     exit();
 // }
 
