@@ -2,13 +2,8 @@
 require_once '../db/connection.php';
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    // User is not logged in, redirect to login page
     header("Location: ../../frontend/login.html");
     exit();
-}
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    die("Invalid request.");
 }
 
 $categoryName = $_POST['category'] ?? '';
@@ -39,7 +34,6 @@ if ($checkCategory->num_rows > 0) {
 }
 
 // 2. Insert quiz
-$createdBy = $_SESSION['user_id'] ?? 1; // fallback if session isn't set
 $quizTitle = $categoryName . " Quiz";
 
 $insertQuiz = $conn->prepare("INSERT INTO quizzes (title, category_id) VALUES (?, ?)");

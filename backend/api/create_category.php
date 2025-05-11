@@ -1,25 +1,34 @@
-
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    // User is not logged in, redirect to login page
     header("Location: ../../frontend/login.html");
     exit();
 }
-require '../db/connection.php'; // adjust path as needed
+
+require '../db/connection.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name']);
     $description = trim($_POST['description']);
 
-    if (empty($name) || empty($description)) {
-        die("Category name and description are required.");
+    // Check if the category already exists
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM categories WHERE name = ?");
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($count > 0) {
+        // Category already exists
+        header("Location: ../../frontend/admin_dashboard.html?category=duplicate");
+        exit();
     }
 
-    // Insert into categories
+    // Insert the new category if it doesn't exist
     $stmt = $conn->prepare("INSERT INTO categories (name, description) VALUES (?, ?)");
     $stmt->bind_param("ss", $name, $description);
-     
+    
     if ($stmt->execute()) {
         header("Location: ../../frontend/admin_dashboard.html?category=success");
         exit();
@@ -33,3 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Invalid request method.";
 }
 ?>
+

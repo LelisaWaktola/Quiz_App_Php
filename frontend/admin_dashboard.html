@@ -4,19 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="css/admin_dashboard.css">
-  <style>
-    
-  </style>
-  
+  <link rel="stylesheet" href="css/admin_dashboard.css?v=1.0">  
 </head>
 <body>
   <header>
-    <h1>Admin Dashboard</h1>
+    <div class="upper">
+      <h2 class="hero-heading">Admin Dashboard</h2>
+      <a class="logout-btn" href="../backend/api/logout.php">Logout</a>
+    </div>
+
    
   </header>
-
+  <div class="ptext hidden" id="ptext" style="background-color: red;text-align: center;">
+    <p></p>
+</div>
   <main>
+     
     <div class="card">
       <h3>Create Category</h3>
       <a href="category_form.html">Go</a>
@@ -31,10 +34,14 @@
       <h3>View User History</h3>
       <a href="../backend/api/view_history.php">Go</a>
     </div>
+    <div class="card">
+      <h3>Delete category</h3>
+      <a href="delete_category.php">Go</a>
+    </div>
   </main>
   <!-- Success Popup -->
   <div id="success-popup" class="popup hidden">
-    <span class="popup-icon">✅</span>
+    <span class="popup-icon"></span>
     <p id="popup-message"></p>
   </div>
 
@@ -44,10 +51,12 @@
     }
   
     const categorySuccess = getQueryParam('category');
-    if (categorySuccess === 'success') {
-      const popup = document.getElementById('success-popup');
+    const deleteSuccess = getQueryParam('success');
+    const popup = document.getElementById('success-popup');
+    
       const popupMessage=document.getElementById('popup-message');
       popupMessage.textContent='category created successfully! ';
+    if (categorySuccess === 'success') {
 
       popup.classList.remove('hidden');
       popup.classList.add('show');
@@ -55,6 +64,30 @@
       setTimeout(() => {
         popup.classList.remove('show');
         popup.classList.add('hidden');
+      }, 3000); // 3 seconds
+    }
+    else if(categorySuccess === 'duplicate'){
+      // const popup = document.getElementById('success-popup');
+      // const popupMessage=document.getElementById('popup-message');
+      popupMessage.textContent='category exist ';
+
+      popup.classList.remove('hidden');
+      popup.classList.add('show');
+  
+      setTimeout(() => {
+        popup.classList.remove('show');
+        popup.classList.add('hidden');
+      }, 3000); // 3 seconds
+    }
+    else if(deleteSuccess==='deleted'){
+      const ptext=document.getElementById('ptext');
+      ptext.textContent='successfully deleted!'
+      ptext.classList.remove('hidden');
+      ptext.classList.add('show');
+  
+      setTimeout(() => {
+        ptext.classList.remove('show');
+        ptext.classList.add('hidden');
       }, 3000); // 3 seconds
     }
   </script>

@@ -12,9 +12,9 @@
 
       background: #1d3557;
       color: white;
-      padding: 1rem 2rem;
+      padding: 1rem 2rem; 
       text-align: center;
-    }
+     }
 
     main {
       display: flex;
@@ -60,6 +60,7 @@
     }
     .popup {
       position: fixed;
+      left: 50%;
    
       transform: translate(-50%, -50%);
       background: #28a7469d;
@@ -71,11 +72,12 @@
       z-index: 1000;
       opacity: 0;
       transition: opacity 0.4s ease, transform 0.4s ease;
-      /* display: flex; */
-      /* align-items: center; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
-      max-width: 400px;
-      
+      max-width: 600px;
+      min-width: 500px;
     }
   
     .popup.show {
@@ -92,5 +94,30 @@
   
     #popup-message {
       font-size: 2em;
-      color: white;
+      color: red;
     }
+
+
+    .upper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .logout-btn {
+      padding: 0.5rem 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .logout-btn:hover {
+      background-color: #e60000;
+      transform: scale(1.05);
+    }
+    
+
