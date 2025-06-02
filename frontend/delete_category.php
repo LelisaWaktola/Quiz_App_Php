@@ -51,7 +51,6 @@
     <form action="../backend/api/delete_category2.php" method="post">
       <label for="category">Select Category:</label>
       <select name="category_name" id="category" required>
-        <!-- Category options will be populated via PHP -->
         <?php
         require '../backend/db/connection.php';
         $res = $conn->query("SELECT name FROM categories");

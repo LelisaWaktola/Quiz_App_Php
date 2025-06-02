@@ -1,30 +1,30 @@
-*{
-   box-sizing: border-box;
-}
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
-      margin: 0;
-      padding: 0;
-    }
+  *{
+    box-sizing: border-box;
+  }
+  body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+  }
 
-    header {
+  header {
 
-      background: #1d3557;
-      color: white;
-      padding: 1rem 2rem; 
-      text-align: center;
-     }
+        background: #1d3557;
+        color: white;
+        padding: 1rem 2rem; 
+        text-align: center;
+  }
 
-    main {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 2rem;
-      gap: 2rem;
-    }
+  main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2rem;
+        gap: 2rem;
+  }
 
-    .card {
+  .card {
       background: white;
       padding: 1.5rem;
       border-radius: 12px;
@@ -32,18 +32,18 @@
       width: 300px;
       transition: transform 0.2s ease;
       text-align: center;
-    }
+  }
 
-    .card:hover {
+  .card:hover {
       transform: translateY(-5px);
-    }
+  }
 
-    .card h3 {
+  .card h3 {
       margin-bottom: 1rem;
       color: #1d3557;
-    }
+  }
 
-    .card a {
+  .card a {
       display: inline-block;
       margin-top: 0.5rem;
       padding: 0.6rem 1.2rem;
@@ -53,71 +53,71 @@
       text-decoration: none;
       font-size: 0.95rem;
       transition: background 0.3s ease;
-    }
+  }
 
-    .card a:hover {
-      background: #457b9d;
-    }
-    .popup {
-      position: fixed;
-      left: 50%;
-   
-      transform: translate(-50%, -50%);
-      background: #28a7469d;
-      color: white !important;
-      padding: 16px 24px;
-      border-radius: 12px;
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-      font-size: 16px;
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      max-width: 600px;
-      min-width: 500px;
-    }
-  
-    .popup.show {
-      opacity: 1;
-    }
-  
-    .popup-icon {
-      font-size: 18px;
-    }
-  
-    .hidden {
-      display: none;
-    }
-  
-    #popup-message {
-      font-size: 2em;
-      color: red;
-    }
+  .card a:hover {
+  background: #457b9d;
+  }
+  .popup {
+  position: fixed;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  background: #28a7469d;
+  color: white !important;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 600px;
+  min-width: 500px;
+  }
+
+  .popup.show {
+  opacity: 1;
+  }
+
+  .popup-icon {
+  font-size: 18px;
+  }
+
+  .hidden {
+  display: none;
+  }
+
+  #popup-message {
+  font-size: 2em;
+  color: red;
+  }
 
 
-    .upper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    
-    .logout-btn {
-      padding: 0.5rem 1rem;
-      background-color: #ff4d4d;
-      color: white;
-      text-decoration: none;
-      border-radius: 0.5rem;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    
-    .logout-btn:hover {
-      background-color: #e60000;
-      transform: scale(1.05);
-    }
-    
+  .upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  }
+
+  .logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: #ff4d4d;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .logout-btn:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+  }
+
 

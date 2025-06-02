@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $subject = isset($_GET['subject']) ? strtolower(trim($_GET['subject'])) : null;
+$id_id=isset($_GET['id']);
 
 $stmt = $conn->prepare("SELECT id FROM categories WHERE LOWER(name) = ?");
 $stmt->bind_param("s", $subject);
@@ -168,10 +169,7 @@ $questions = $qStmt->get_result();
       <!-- <button type="submit" class="submit-btn">Submit Quiz</button> -->
     </form>
   <?php else: ?>
-    <p>No questions available for this subject.</p>
-    <a href="../../frontend/quiz_dashboard.php">
-      <button type="button" class="submit-btn">Home</button>
-    </a>
+    <?php header('Location: ../../frontend/quiz_dashboard.php?noQuestion=empty&id=' . $id_id)?>
   <?php endif; ?>
   <script>
   const questions = document.querySelectorAll(".question");
